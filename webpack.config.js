@@ -53,7 +53,9 @@ module.exports = {
   },
   /**插件 */
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+    }),
     // 请确保引入这个插件来施展魔法
     new VueLoaderPlugin()
   ],
