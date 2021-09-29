@@ -7,11 +7,15 @@ module.exports = {
   /**模式 */
   mode: 'development',
   /**入口 */
-  entry: path.resolve(__dirname, './src/main.js'),
+  entry: path.resolve(__dirname, './src/main.ts'),
   /**出口 */
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js']
   },
   /**构建目标 */
   target: 'web',
@@ -26,6 +30,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.tsx$/,
+        loader: 'ts-loader'
       },
       // 它会应用到普通的 `.css` 文件
       // 以及 `.vue` 文件中的 `<style>` 块
